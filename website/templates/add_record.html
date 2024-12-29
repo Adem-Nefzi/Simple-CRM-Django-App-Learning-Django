@@ -1,0 +1,29 @@
+{% extends "base.html" %} 
+{% block content %}
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-6 col-md-8 col-sm-10">
+            <div class="card shadow-sm">
+                <div class="card-header bg-primary text-white text-center">
+                    <h4 class="mb-0">Add New Record</h4>
+                </div>
+                <div class="card-body">
+                    <form method="POST" action="{% url 'add_record' %}">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+
+                        <div class="d-flex justify-content-between mt-4">
+                            <a class="btn btn-outline-secondary" href="{% url 'home' %}">
+                                <i class="bi bi-house me-2"></i>Back
+                            </a>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="bi bi-plus"></i> Add Record
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
